@@ -41,12 +41,21 @@ namespace ObjectHandler {
     void RangeReference::initializeRegexes() {
 
         std::ostringstream strStandard, strSpecial;
-        strStandard << "=?'?.*\\[([\\.\\w\\s()-]+)(?:\\.XLS)?\\]([\\w\\s]+)'?!" 
+
+        const char* extensions = "(?:\\.XLS[XMB]?)";
+
+        strStandard << "=?'?[^']*\\[([^']+?)"
+            << extensions
+            << "?" // extension is optional
+            << "\\]([^']+)'?!"
             << Configuration::instance().rowCharacter() << "(\\d*)" 
             << Configuration::instance().colCharacter() << "(\\d*)(?::" 
             << Configuration::instance().rowCharacter() << "(\\d*)" 
             << Configuration::instance().colCharacter() << "(\\d*))?";
-        strSpecial << "=?'?([\\w\\s]+)(?:\\.XLS)'?!" 
+
+        strSpecial << "=?'?([^']+?)"
+            << extensions
+            << "'?!"
             << Configuration::instance().rowCharacter() << "(\\d*)" 
             << Configuration::instance().colCharacter() << "(\\d*)(?::" 
             << Configuration::instance().rowCharacter() << "(\\d*)" 

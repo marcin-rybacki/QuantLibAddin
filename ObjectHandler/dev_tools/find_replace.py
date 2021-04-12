@@ -112,14 +112,12 @@ SUBSTITUTIONS = (
 
 ##  Frequently used
 
-# TODO: include file ObjectHandler/dev_tools/notes.txt in the update
-
-    (re.compile('1_20_0'), '1_21_0'),
-    (re.compile('1\.20'), '1.21'),
-    (re.compile('0x012000'), '0x012100'),
-    (re.compile('R012000f0'), 'R012100f0'),
-    #(re.compile('0\.10\.0f12'), '0.10.0f13'),
-    #(re.compile('0x001000f12'), '0x001000f13'),
+    (re.compile('1_21_0'), '1_22_0'),
+    (re.compile('1\.21'), '1.22'),
+    (re.compile('0x012100'), '0x012210'),
+    (re.compile('R012100f0'), 'R012210f0'),
+    (re.compile('0\.10\.0f13'), '0.10.0f14'),
+    (re.compile('0x001000f13'), '0x001000f14'),
 
     #(re.compile('vc140'), 'vc141'),
 )
@@ -167,6 +165,7 @@ IGNORE_FILES = (
     re.compile('^config\.status$'),
     re.compile('^configure$'),
     re.compile('^design\.docs$'),
+    re.compile('^find_replace\.py$'),
     re.compile('^history\.docs$'),
     re.compile('^install-sh$'),
     re.compile('^libtool$'),
@@ -188,7 +187,6 @@ IGNORE_DIRS = (
     re.compile('^build$'),
     re.compile('^buildStatic$'),
     re.compile('^configure$'),
-    re.compile('^dev_tools$'),
     re.compile('^framework$'),
     re.compile('^html$'),
     re.compile('^html-online$'),

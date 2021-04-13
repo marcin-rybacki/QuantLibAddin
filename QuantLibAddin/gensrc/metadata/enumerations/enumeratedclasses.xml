@@ -300,7 +300,7 @@
           <value>CRR_Engine</value>
           <libraryClass>QuantLib::CoxRossRubinstein</libraryClass>
         </EnumeratedClass>
-        <EnumeratedClass>
+        <!--EnumeratedClass>
           <string>FDA</string>
           <value>FDA_Engine</value>
           <libraryClass>QuantLib::FDAmericanEngine</libraryClass>
@@ -314,7 +314,7 @@
           <string>FDE</string>
           <value>FDE_Engine</value>
           <libraryClass>QuantLib::FDEuropeanEngine</libraryClass>
-        </EnumeratedClass>
+        </EnumeratedClass-->
         <EnumeratedClass>
           <string>JOSHI</string>
           <value>JOSHI_Engine</value>

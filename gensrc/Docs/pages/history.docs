@@ -23,6 +23,10 @@
 
 /*! \page history Version History
 
+<strong>Release 1.22.0 - ??? 2021</strong>
+
+- Maintenance release.
+
 <strong>Release 1.21.0 - January 2021</strong>
 
 - Upgraded gensrc source code generation scripts from python 2 to 3 (thanks to Francois Botha)

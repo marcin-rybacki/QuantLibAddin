@@ -26,7 +26,6 @@ EXTRA_DIST = \
     Contributors.txt \
     LICENSE.TXT \
     NEWS.txt \
-    ObjectHandler.nsi \
     ObjectHandler.sln \
     ohlib.vcxproj \
     ohlib.vcxproj.filters \

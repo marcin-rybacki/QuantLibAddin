@@ -27,7 +27,6 @@ EXTRA_DIST = \
     Contributors.txt \
     LICENSE.TXT \
     NEWS.txt \
-    QuantLibAddin.nsi \
     QuantLibAddin.sln \
     QuantLibObjects.vcxproj \
     QuantLibObjects.vcxproj.filters \

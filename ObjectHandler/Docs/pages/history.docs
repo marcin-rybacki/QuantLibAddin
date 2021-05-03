@@ -23,9 +23,9 @@
 
 /*! \page history Version History
 
-<strong>Release 1.22.0 - ??? 2021</strong>
+<strong>Release 1.22.0 - May 2021</strong>
 
-- Relax regex conditions to capture more characters in filenames (thanks to Francois Botha)
+- Improved processing for range references (thanks to Francois Botha)
 
 <strong>Release 1.21.0 - January 2021</strong>
 

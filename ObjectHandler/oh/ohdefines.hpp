@@ -34,15 +34,15 @@
 
 //! Version string.
 #ifdef _DEBUG
-    #define OBJHANDLER_VERSION "1.22.0-debug"
+    #define OBJHANDLER_VERSION "1.23.0-debug"
 #else
-    #define OBJHANDLER_VERSION "1.22.0"
+    #define OBJHANDLER_VERSION "1.23.0"
 #endif
 
 //! Version hexadecimal number.
-#define OBJHANDLER_HEX_VERSION 0x012200f0
+#define OBJHANDLER_HEX_VERSION 0x012300f0
 //! Version string for output lib name.
-#define OBJHANDLER_LIB_VERSION "1_22_0"
+#define OBJHANDLER_LIB_VERSION "1_23_0"
 
 #include <cctype>
 #if defined(BOOST_NO_STDC_NAMESPACE)

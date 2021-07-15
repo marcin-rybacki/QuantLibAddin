@@ -112,12 +112,12 @@ SUBSTITUTIONS = (
 
 ##  Frequently used
 
-    (re.compile('1_21_0'), '1_22_0'),
-    (re.compile('1\.21'), '1.22'),
-    (re.compile('0x012100'), '0x012200'),
-    (re.compile('R012100f0'), 'R012200f0'),
-    (re.compile('0\.10\.0f13'), '0.10.0f14'),
-    (re.compile('0x001000f13'), '0x001000f14'),
+    (re.compile('1_22_0'), '1_23_0'),
+    (re.compile('1\.22'), '1.23'),
+    (re.compile('0x012200'), '0x012300'),
+    (re.compile('R012200f0'), 'R012300f0'),
+    (re.compile('0\.10\.0f14'), '0.10.0f15'),
+    (re.compile('0x001000f14'), '0x001000f15'),
 
     #(re.compile('vc140'), 'vc141'),
 )

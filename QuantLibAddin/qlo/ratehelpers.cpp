@@ -289,8 +289,9 @@ namespace QuantLibAddin {
             const bool useCleanPrice,
             bool permanent)
     : RateHelper(properties, permanent) {
+        QuantLib::Bond::Price::Type priceType = useCleanPrice ? QuantLib::Bond::Price::Clean : QuantLib::Bond::Price::Dirty;
         libraryObject_ = shared_ptr<QuantLib::BondHelper>(new
-            QuantLib::BondHelper(price, bond, useCleanPrice));
+            QuantLib::BondHelper(price, bond, priceType));
         quoteName_ = f(properties->getSystemProperty("Price"));
     }
 
@@ -316,6 +317,7 @@ namespace QuantLibAddin {
         QuantLib::FixedRateBond(settlementDays, faceAmount, *schedule,
                       coupons, paymentDayCounter, paymentConvention,
                       redemption, issueDate)), useCleanPrice, permanent) {
+        QuantLib::Bond::Price::Type priceType = useCleanPrice ? QuantLib::Bond::Price::Clean : QuantLib::Bond::Price::Dirty;
         libraryObject_ = shared_ptr<QuantLib::FixedRateBondHelper>(new
             QuantLib::FixedRateBondHelper(price,
                                           settlementDays,
@@ -331,7 +333,7 @@ namespace QuantLibAddin {
                                           exCouponCalendar,
                                           exCouponConvention,
                                           exCouponEndOfMonth,
-                                          useCleanPrice));
+                                          priceType));
         quoteName_ = f(properties->getSystemProperty("Price"));
     }
 

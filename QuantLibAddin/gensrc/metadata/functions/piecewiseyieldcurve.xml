@@ -64,11 +64,6 @@
             <tensorRank>vector</tensorRank>
             <description>Jump dates vector.</description>
           </Parameter>
-          <Parameter name='Accuracy' default='1.0e-12'>
-            <type>QuantLib::Real</type>
-            <tensorRank>scalar</tensorRank>
-            <description>Bootstrapping accuracy.</description>
-          </Parameter>
           <Parameter name='TraitsID' default='"Discount"'>
             <type>string</type>
             <tensorRank>scalar</tensorRank>
@@ -123,11 +118,6 @@
             <type>QuantLib::Date</type>
             <tensorRank>vector</tensorRank>
             <description>Jump dates vector.</description>
-          </Parameter>
-          <Parameter name='Accuracy' default='1.0e-12'>
-            <type>QuantLib::Real</type>
-            <tensorRank>scalar</tensorRank>
-            <description>Bootstrapping accuracy.</description>
           </Parameter>
           <Parameter name='TraitsID' default='"Discount"'>
             <type>string</type>

@@ -48,7 +48,6 @@ namespace ObjectHandler {
             const QuantLib::DayCounter& dayCounter,
             const std::vector<QuantLib::Handle<QuantLib::Quote> >& jumps,
             const std::vector<QuantLib::Date>& jumpDates,
-            const QuantLib::Real accuracy,
             const QuantLib::MixedInterpolation::Behavior behavior,
             const QuantLib::Size n);
 
@@ -66,7 +65,6 @@ namespace ObjectHandler {
                 const QuantLib::DayCounter& dayCounter,
                 const std::vector<QuantLib::Handle<QuantLib::Quote> >& jumps,
                 const std::vector<QuantLib::Date>& jumpDates,
-                const QuantLib::Real accuracy,
                 const QuantLib::MixedInterpolation::Behavior behavior,
                 const QuantLib::Size n) {
             KeyPair key(traitsID, interpolatorID);
@@ -75,7 +73,7 @@ namespace ObjectHandler {
             return yieldTermStructureConstructor(nDays, calendar,
                                                  rh, dayCounter,
                                                  jumps, jumpDates,
-                                                 accuracy, behavior, n);
+                                                 behavior, n);
         }
         using RegistryManager<QuantLib::YieldTermStructure,
                               EnumPairRegistry>::registerType;

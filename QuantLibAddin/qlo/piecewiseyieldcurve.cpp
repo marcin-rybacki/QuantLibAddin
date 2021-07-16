@@ -43,7 +43,6 @@ namespace QuantLibAddin {
             const QuantLib::DayCounter& dayCounter,
             const std::vector<QuantLib::Handle<QuantLib::Quote> >& jumps,
             const std::vector<QuantLib::Date>& jumpDates,
-            QuantLib::Real accuracy,
             const std::string& traitsID,
             const std::string& interpolatorID,
             const QuantLib::MixedInterpolation::Behavior behavior,
@@ -60,7 +59,6 @@ namespace QuantLibAddin {
                                               dayCounter,
                                               jumps,
                                               jumpDates,
-                                              accuracy,
                                               behavior,
                                               n);
 
@@ -81,7 +79,6 @@ namespace QuantLibAddin {
             const QuantLib::DayCounter& dayCounter,
             const std::vector<QuantLib::Handle<QuantLib::Quote> >& jumps,
             const std::vector<QuantLib::Date>& jumpDates,
-            QuantLib::Real accuracy,
             const std::string& traitsID,
             const std::string& interpolatorID,
             bool permanent)
@@ -96,7 +93,6 @@ namespace QuantLibAddin {
                                               dayCounter,
                                               jumps,
                                               jumpDates,
-                                              accuracy,
                                               QuantLib::MixedInterpolation::ShareRanges,
                                               0);
 

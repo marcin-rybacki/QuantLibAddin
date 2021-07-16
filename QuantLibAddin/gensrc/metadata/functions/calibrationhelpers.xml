@@ -169,7 +169,7 @@
       </ReturnValue>
     </Member>
 
-    <Member name='qlOneFactorAffineModelCalibrate' type='QuantLib::OneFactorAffineModel'>
+    <!--Member name='qlOneFactorAffineModelCalibrate' type='QuantLib::OneFactorAffineModel'>
       <description>calibrate a model.</description>
       <libraryFunction>calibrate</libraryFunction>
       <SupportedPlatforms>
@@ -219,9 +219,9 @@
         <type>void</type>
         <tensorRank>scalar</tensorRank>
       </ReturnValue>
-    </Member>
+    </Member-->
 
-    <Member name='qlModelG2Calibrate' type='QuantLib::G2'>
+    <!--Member name='qlModelG2Calibrate' type='QuantLib::G2'>
       <description>calibrate a model.</description>
       <libraryFunction>calibrate</libraryFunction>
       <SupportedPlatforms>
@@ -271,7 +271,7 @@
         <type>void</type>
         <tensorRank>scalar</tensorRank>
       </ReturnValue>
-    </Member>
+    </Member-->
 
   </Functions>
 </Category>

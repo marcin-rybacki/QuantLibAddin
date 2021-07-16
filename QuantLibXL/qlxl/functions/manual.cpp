@@ -63,3 +63,90 @@ XLL_DEC long *qlFunctionCount() {
 //    #endif
 //    return &result;
 //}
+
+
+#include <qlo/qladdindefines.hpp>
+#include <oh/enumerations/typefactory.hpp>
+#include <qlo/enumerations/factories/calendarfactory.hpp>
+#include <ql/time/date.hpp>
+#include <ql/time/calendar.hpp>
+#include <qlo/loop/loop_calendar.hpp>
+#include <ohxl/loop.hpp>
+
+#include <ohxl/callingrange.hpp>
+#include <qlxl/session.hpp>
+#include <qlxl/conversions/all.hpp>
+
+XLL_DEC OPER* qlCalendarHolidayList(
+    char* Calendar,
+    OPER* FromDate,
+    OPER* ToDate,
+    OPER* IncludeWeekEnds,
+    OPER* Trigger) {
+
+    // declare a shared pointer to the Function Call object
+
+    boost::shared_ptr<ObjectHandler::FunctionCall> functionCall;
+
+    try {
+
+        // instantiate the Function Call object
+
+        functionCall = boost::shared_ptr<ObjectHandler::FunctionCall>(
+            new ObjectHandler::FunctionCall("qlCalendarHolidayList"));
+
+        ObjectHandler::validateRange(Trigger, "Trigger");
+
+        // initialize the session ID (if enabled)
+
+        SET_SESSION_ID
+
+            // convert input datatypes to C++ datatypes
+
+            ObjectHandler::property_t FromDateCpp = ObjectHandler::convert2<ObjectHandler::property_t>(
+                ObjectHandler::ConvertOper(*FromDate));
+
+        ObjectHandler::property_t ToDateCpp = ObjectHandler::convert2<ObjectHandler::property_t>(
+            ObjectHandler::ConvertOper(*ToDate));
+
+        bool IncludeWeekEndsCpp = ObjectHandler::convert2<bool>(
+            ObjectHandler::ConvertOper(*IncludeWeekEnds), "IncludeWeekEnds", false);
+
+        // convert input datatypes to QuantLib datatypes
+
+        QuantLib::Date FromDateLib = ObjectHandler::convert2<QuantLib::Date>(
+            ObjectHandler::ConvertOper(*FromDate), "FromDate");
+
+        QuantLib::Date ToDateLib = ObjectHandler::convert2<QuantLib::Date>(
+            ObjectHandler::ConvertOper(*ToDate), "ToDate");
+
+        // convert input datatypes to QuantLib enumerated datatypes
+
+        QuantLib::Calendar CalendarEnum =
+            ObjectHandler::Create<QuantLib::Calendar>()(Calendar);
+
+        // invoke the utility function
+
+        std::vector<QuantLib::Date> returnValue = CalendarEnum.holidayList(
+            FromDateLib,
+            ToDateLib,
+            IncludeWeekEndsCpp);
+
+        // convert and return the return value
+
+        std::vector<long> returnValVec = QuantLibAddin::libraryToVector(returnValue);
+        static OPER xRet;
+        ObjectHandler::vectorToOper(returnValVec, xRet);
+        return &xRet;
+
+    }
+    catch (const std::exception& e) {
+        ObjectHandler::RepositoryXL::instance().logError(e.what(), functionCall);
+        return 0;
+    }
+    catch (...) {
+        ObjectHandler::RepositoryXL::instance().logError("unkown error type", functionCall);
+        return 0;
+    }
+
+}

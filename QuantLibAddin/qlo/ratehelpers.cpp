@@ -33,6 +33,7 @@
 #include <ql/termstructures/yield/ratehelpers.hpp>
 #include <ql/termstructures/yield/bondhelpers.hpp>
 #include <ql/termstructures/yield/oisratehelper.hpp>
+#include <ql/experimental/termstructures/crosscurrencyratehelpers.hpp>
 
 #include <oh/repository.hpp>
 
@@ -361,6 +362,36 @@ namespace QuantLibAddin {
         quoteName_ = f(properties->getSystemProperty("FwdPoint"));
     }
 
+    CrossCurrencyBasisSwapRateHelper::CrossCurrencyBasisSwapRateHelper(
+        const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+        const QuantLib::Handle<QuantLib::Quote>& basis,
+        const QuantLib::Period& tenor,
+        QuantLib::Natural fixingDays,
+        QuantLib::Calendar calendar,
+        QuantLib::BusinessDayConvention convention,
+        bool endOfMonth,
+        boost::shared_ptr<QuantLib::IborIndex> baseCurrencyIndex,
+        boost::shared_ptr<QuantLib::IborIndex> quoteCurrencyIndex,
+        QuantLib::Handle<QuantLib::YieldTermStructure> collateralCurve,
+        bool isFxBaseCurrencyCollateralCurrency,
+        bool isBasisOnFxBaseCurrencyLeg,
+        bool permanent)
+    : RateHelper(properties, permanent) {
+        libraryObject_ = shared_ptr<QuantLib::RateHelper>(new
+            QuantLib::CrossCurrencyBasisSwapRateHelper(
+                basis,
+                tenor,
+                fixingDays,
+                calendar,
+                convention,
+                endOfMonth,
+                baseCurrencyIndex,
+                quoteCurrencyIndex,
+                collateralCurve,
+                isFxBaseCurrencyCollateralCurrency,
+                isBasisOnFxBaseCurrencyLeg));
+        quoteName_ = f(properties->getSystemProperty("Basis"));
+    }
 
     // helper class
     namespace {

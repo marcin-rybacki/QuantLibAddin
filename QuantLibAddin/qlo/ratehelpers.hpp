@@ -253,6 +253,24 @@ namespace QuantLibAddin {
 
     };
 
+    class CrossCurrencyBasisSwapRateHelper : public RateHelper {
+    public:
+        CrossCurrencyBasisSwapRateHelper(
+            const boost::shared_ptr<ObjectHandler::ValueObject>& properties,
+            const QuantLib::Handle<QuantLib::Quote>& basis,
+            const QuantLib::Period& tenor,
+            QuantLib::Natural fixingDays,
+            QuantLib::Calendar calendar,
+            QuantLib::BusinessDayConvention convention,
+            bool endOfMonth,
+            boost::shared_ptr<QuantLib::IborIndex> baseCurrencyIndex,
+            boost::shared_ptr<QuantLib::IborIndex> quoteCurrencyIndex,
+            QuantLib::Handle<QuantLib::YieldTermStructure> collateralCurve,
+            bool isFxBaseCurrencyCollateralCurrency,
+            bool isBasisOnFxBaseCurrencyLeg,
+            bool permanent);
+
+    };
 
 
     // Processes the set of curve bootstrapping instruments
